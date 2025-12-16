@@ -134,8 +134,7 @@ st.title("Cronos: O Enigma Histórico ⏳")
 st.write("Adivinhe a figura histórica!")
 
 # Abas para os modos de jogo
-tab1, tab2 = st.tabs(["📅 Desafio Diário", "🏋️ Modo Treino"])
-
+tab1, tab2, tab3 = st.tabs(["📅 Desafio Diário", "🏋️ Modo Treino", "👨‍💻 Sobre o Criador"])
 # --- ABA 1: DESAFIO DIÁRIO ---
 with tab1:
     st.header("Desafio do Dia")
@@ -217,3 +216,40 @@ with tab2:
 
     for feedback, name in st.session_state.training_guesses:
         render_row(feedback, name)
+# --- ABA 3: SOBRE O CRIADOR ---
+with tab3:
+    st.header("Quem sou eu?")
+    
+    col1, col2 = st.columns([1, 2]) # Coluna da foto menor (1) e texto maior (2)
+    
+    with col1:
+        # Tenta carregar a imagem. Se não achar, mostra um aviso amigável.
+        try:
+            st.image("perfil.jpg", width=200, caption="Nic Saldanha") 
+        except:
+            st.warning("⚠️ Adicione uma foto chamada 'perfil.jpg' na pasta do projeto!")
+
+    with col2:
+        st.markdown("""
+        ### Olá, eu sou o Nic! 👋
+        
+        Sou estudante do 3º ano do ensino médio integrado ao técnico em informática e apaixonado por desenvolvimento, música e jogos.
+        
+        Criei o **Cronos** para testar seus conhecimentos históricos. Espero que curta!
+        """)
+        
+        st.divider()
+        
+        # Redes Sociais
+        st.subheader("📱 Redes Sociais")
+        st.markdown("[📸 Instagram (@nicsaldanha)](https://instagram.com/nicsaldanha)")
+        
+        st.divider()
+
+        # Área de Doação (Pix)
+        st.subheader("☕ Apoie o projeto")
+        st.write("Se você curtiu o jogo e quer fortalecer o desenvolvedor, qualquer valor ajuda!")
+        
+        # st.code facilita para o usuário copiar a chave Pix
+        st.markdown("**Chave Pix (CPF):**")
+        st.code("119.978.036-74", language="text")
