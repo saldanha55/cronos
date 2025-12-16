@@ -292,4 +292,172 @@ database = {
             "Traído, fui degolado em 20 de novembro. Minha cabeça foi exposta em Recife para provar que eu não era imortal, mas minha lenda vive."
         ]
     }
+    # --- LITERATURA & PENSAMENTO ---
+    "Dante Alighieri": {
+        "Era": "Medieval", "Continente": "Europa", "Função": "Escritor", "Morte": 1321,
+        "Dicas": [
+            "Fui exilado da minha amada Florença e nunca mais pude voltar. Transformei minha dor e amor por Beatriz em versos.",
+            "Escrevi a 'Divina Comédia', narrando uma viagem pelo Inferno, Purgatório e Paraíso. Estabeleci o italiano moderno como língua literária.",
+            "Descrevi o inferno como nove círculos concêntricos. Morri em Ravena, ainda sonhando com a redenção política e espiritual."
+        ]
+    },
+    "William Shakespeare": {
+        "Era": "Moderna", "Continente": "Europa", "Função": "Escritor", "Morte": 1616,
+        "Dicas": [
+            "O Bardo de Avon. Escrevi peças para o povo e para a rainha no Globe Theatre. Criei Romeu e Julieta, Hamlet e Macbeth.",
+            "Inventei centenas de palavras que usamos hoje. Perguntei 'Ser ou não ser?' e disse que 'todo o mundo é um palco'.",
+            "Minha identidade real às vezes é questionada, mas meu legado é imortal. Morri no dia do meu aniversário de 52 anos."
+        ]
+    },
+    "Homero": {
+        "Era": "Antiga", "Continente": "Europa", "Função": "Escritor", "Morte": -800,
+        "Dicas": [
+            "Minha própria existência é um mistério; dizem que eu era um poeta cego que vagava pela Grécia cantando versos.",
+            "Compilei as histórias orais da Guerra de Troia na 'Ilíada' e o retorno de Odisseu na 'Odisseia'.",
+            "Criei os arquétipos do herói e da jornada que influenciam a narrativa ocidental há quase três milênios."
+        ]
+    },
+    "Mary Shelley": {
+        "Era": "Moderna", "Continente": "Europa", "Função": "Escritor", "Morte": 1851,
+        "Dicas": [
+            "Filha de filósofos feministas. Aos 18 anos, numa noite de tempestade em um desafio com Lord Byron, tive um pesadelo.",
+            "Escrevi 'Frankenstein', criando a ficção científica moderna. Minha vida foi marcada pela perda de filhos e do meu marido afogado.",
+            "Mostrei que o verdadeiro monstro não é a criatura feita de pedaços, mas a humanidade que a rejeita."
+        ]
+    },
+    "Agatha Christie": {
+        "Era": "Contemporânea", "Continente": "Europa", "Função": "Escritor", "Morte": 1976,
+        "Dicas": [
+            "A Rainha do Crime. Trabalhei em farmácias durante as guerras, onde aprendi tudo sobre venenos, minha arma favorita nos livros.",
+            "Criei Hercule Poirot e Miss Marple. Sou a romancista mais vendida da história, perdendo apenas para a Bíblia e Shakespeare.",
+            "Uma vez desapareci misteriosamente por 11 dias, um enigma que nem eu mesma expliquei em minhas obras."
+        ]
+    },
+
+    # --- MULHERES FORTES & PIONEIRAS ---
+    "Amelia Earhart": {
+        "Era": "Contemporânea", "Continente": "América do Norte", "Função": "Explorador", "Morte": 1937,
+        "Dicas": [
+            "Cortei o cabelo curto e comprei um avião amarelo chamado 'Canário'. Fui a primeira mulher a voar sozinha sobre o Atlântico.",
+            "Quebrei recordes de altitude e velocidade, provando que mulheres podiam dominar os céus. Criei uma linha de roupas para financiar meus voos.",
+            "Desapareci no Pacífico tentando dar a volta ao mundo. Meu destino final continua sendo um dos maiores mistérios da aviação."
+        ]
+    },
+    "Rosa de Luxemburgo": {
+        "Era": "Contemporânea", "Continente": "Europa", "Função": "Revolucionária", "Morte": 1919,
+        "Dicas": [
+            "Judia polonesa, teórica marxista e oradora brilhante. Fui presa diversas vezes por me opor à Primeira Guerra Mundial.",
+            "Disse que 'quem não se movimenta, não sente as correntes'. Critiquei tanto o capitalismo quanto o autoritarismo leninista.",
+            "Fui assassinada por paramilitares em Berlim e jogada num canal. Tornei-me mártir do socialismo democrático."
+        ]
+    },
+    "Maria Quitéria": {
+        "Era": "Moderna", "Continente": "América do Sul", "Função": "Líder Militar", "Morte": 1853,
+        "Dicas": [
+            "Baiana do sertão. Quando a Guerra da Independência estourou, fugi de casa, vesti o uniforme do meu cunhado e me alistei.",
+            "Revelei ser mulher, mas lutei tão bem que o comando me permitiu ficar. Fui condecorada por Dom Pedro I com a Ordem do Cruzeiro.",
+            "Sou a Joana d'Arc brasileira, a primeira mulher a entrar em combate pelo exército nacional."
+        ]
+    },
+    "Indira Gandhi": {
+        "Era": "Contemporânea", "Continente": "Ásia", "Função": "Político", "Morte": 1984,
+        "Dicas": [
+            "Filha do primeiro primeiro-ministro da Índia (sem parentesco com Mahatma). Fui a 'Dama de Ferro' da Ásia.",
+            "Governei a maior democracia do mundo com pulso firme, levando o país à era nuclear e vencendo guerras.",
+            "Ordenei um ataque a um templo sagrado sikh para conter rebeldes. Fui assassinada pelos meus próprios guarda-costas em vingança."
+        ]
+    },
+    "Ada Lovelace": {
+        "Era": "Moderna", "Continente": "Europa", "Função": "Cientista", "Morte": 1852,
+        "Dicas": [
+            "Filha do poeta Lord Byron, mas fui criada focada na matemática para não herdar a 'loucura' do pai.",
+            "Trabalhei com Charles Babbage na Máquina Analítica. Percebi que computadores poderiam fazer mais que contas: poderiam compor música.",
+            "Escrevi o primeiro algoritmo da história. Sou considerada a primeira programadora, um século antes do primeiro computador existir."
+        ]
+    },
+
+    # --- ANTIGUIDADE & LENDAS ---
+    "Marco Aurélio": {
+        "Era": "Antiga", "Continente": "Europa", "Função": "Monarca", "Morte": 180,
+        "Dicas": [
+            "Fui o último dos 'Cinco Bons Imperadores' de Roma. Passei grande parte do meu reinado em tendas militares, lutando nas fronteiras.",
+            "À noite, escrevia 'Meditações' para mim mesmo. Sou o imperador-filósofo, o maior expoente do Estoicismo no poder.",
+            "Ensinei que não temos controle sobre o que acontece, apenas sobre como reagimos. Minha morte marcou o fim da Pax Romana."
+        ]
+    },
+    "Nero": {
+        "Era": "Antiga", "Continente": "Europa", "Função": "Monarca", "Morte": 68,
+        "Dicas": [
+            "Tornei-me imperador adolescente. Matei minha mãe e minha esposa. Considerava-me um grande artista e atleta, obrigando o povo a me aplaudir.",
+            "Dizem que toquei lira enquanto Roma queimava, embora eu tenha aberto meu palácio aos desabrigados. Culpei os cristãos pelo incêndio.",
+            "Declarado inimigo público pelo Senado, tirei minha vida lamentando: 'Que artista morre comigo!'."
+        ]
+    },
+    "Espártaco": {
+        "Era": "Antiga", "Continente": "Europa", "Função": "Revolucionário", "Morte": -71,
+        "Dicas": [
+            "Fui um soldado trácio escravizado e treinado como gladiador em Cápua. Liderai 70 gladiadores em uma fuga usando facas de cozinha.",
+            "Meu pequeno bando virou um exército de 100 mil escravos que derrotou as legiões romanas repetidas vezes.",
+            "Morri em batalha, mas meu corpo nunca foi achado. 6 mil dos meus seguidores foram crucificados ao longo da Via Ápia como aviso."
+        ]
+    },
+    "Tuntancâmon": {
+        "Era": "Antiga", "Continente": "África", "Função": "Monarca", "Morte": -1323,
+        "Dicas": [
+            "Fui um faraó menino, governando por apenas 10 anos. Em vida, fui pouco importante; minha fama veio 3.000 anos depois.",
+            "Minha tumba no Vale dos Reis foi a única encontrada quase intacta, cheia de ouro, carruagens e minha famosa máscara mortuária.",
+            "A 'maldição' associada à descoberta da minha tumba fascinou o mundo e reacendeu o interesse pelo Egito Antigo."
+        ]
+    },
+    "Confúcio": {
+        "Era": "Antiga", "Continente": "Ásia", "Função": "Filósofo", "Morte": -479,
+        "Dicas": [
+            "Vivi numa época de caos na China. Não criei uma religião, mas um sistema moral baseado na família, respeito aos ancestrais e ordem social.",
+            "Ensinei que o governante deve ser virtuoso para que o povo o siga. Minha 'Regra de Ouro': não faça aos outros o que não quer que façam a você.",
+            "Meus ensinamentos moldaram a cultura, a burocracia e a educação chinesa por dois milênios."
+        ]
+    },
+    "Ramsés II": {
+        "Era": "Antiga", "Continente": "África", "Função": "Monarca", "Morte": -1213,
+        "Dicas": [
+            "O Grande. Governei o Egito por 66 anos. Tive mais de 100 filhos e construí mais monumentos que qualquer outro faraó.",
+            "Lutei a Batalha de Kadesh contra os hititas, a maior batalha de carruagens da história, e assinei o primeiro tratado de paz conhecido.",
+            "Minhas estátuas colossais em Abu Simbel guardam o sul. Dizem que sou o faraó do Êxodo bíblico, embora a história não confirme."
+        ]
+    },
+
+    # --- HISTÓRIA RECENTE ---
+    "Fidel Castro": {
+        "Era": "Contemporânea", "Continente": "América do Norte", "Função": "Político", "Morte": 2016,
+        "Dicas": [
+            "Advogado e filho de fazendeiro. Liderei um ataque desastroso a um quartel, fui preso e depois voltei do México num iate chamado Granma.",
+            "Na Sierra Maestra, comandei os barbudos que derrubaram o ditador Batista. Transformei Cuba no primeiro estado socialista do hemisfério ocidental.",
+            "Sobrevivi a mais de 600 tentativas de assassinato da CIA. Vi 11 presidentes americanos passarem enquanto eu continuava no poder."
+        ]
+    },
+    "Rainha Elizabeth II": {
+        "Era": "Contemporânea", "Continente": "Europa", "Função": "Monarca", "Morte": 2022,
+        "Dicas": [
+            "Não nasci para ser rainha, mas a abdicação do meu tio mudou meu destino. Subi numa árvore como princesa e desci como rainha no Quênia.",
+            "Reinei por 70 anos, o mais longo da história britânica. Vi o fim do Império, a Guerra Fria, a chegada da internet e 15 primeiros-ministros.",
+            "Minha constância e meus corgis foram símbolos de estabilidade num mundo em rápida mudança."
+        ]
+    },
+    "Mikhail Gorbachev": {
+        "Era": "Contemporânea", "Continente": "Europa", "Função": "Político", "Morte": 2022,
+        "Dicas": [
+            "Fui o último líder da União Soviética. Percebi que o sistema estava falindo e tentei reformá-lo com a Perestroika e a Glasnost.",
+            "Não enviei tanques quando o Muro de Berlim caiu, permitindo o fim da Guerra Fria pacificamente. Ganhei o Nobel da Paz.",
+            "No meu próprio país, fui culpado pelo colapso de uma superpotência. No ocidente, fui celebrado como o homem que mudou o mundo."
+        ]
+    },
+    "Malala Yousafzai": {
+        "Era": "Contemporânea", "Continente": "Ásia", "Função": "Ativista", "Morte": 9999, # VIVA (Hack: Ano futuro para lógica funcionar)
+        "Dicas": [
+            "Ainda criança, escrevi um blog para a BBC sobre a vida sob o regime do Talibã no Paquistão. Defendi o direito das meninas estudarem.",
+            "Aos 15 anos, fui baleada na cabeça dentro de um ônibus escolar. Sobrevivi para me tornar a voz global da educação.",
+            "Fui a pessoa mais jovem da história a receber o Prêmio Nobel da Paz. 'Uma criança, um professor, um livro e uma caneta podem mudar o mundo'."
+        ]
+    }, 
+    # (Nota: Para Malala, como ela está viva, a lógica de feedback de ano no jogo dirá "Menor" se chutarem 2024, o que é engraçado, mas funciona. Ou você pode mudar a lógica para aceitar '0' ou '9999' como 'Viva').
 }
