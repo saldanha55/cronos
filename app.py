@@ -143,7 +143,7 @@ def render_hints(target_name, context_key):
     if current_count < total_hints and not st.session_state.get(f"{context_key}_game_over", False):
         if st.button(f"🔍 Revelar Dica {current_count + 1} (Custa 150 pts)", key=f"btn_hint_{context_key}"):
             st.session_state[session_key] += 1
-            st.rerun() # CORRIGIDO AQUI
+            st.rerun()
 
 # --- APP ---
 
@@ -178,11 +178,11 @@ with tab_game:
                     st.session_state.daily_game_over = True
                     st.session_state.daily_guesses.insert(0, ("WIN", daily_guess))
                     st.balloons()
-                    st.rerun() # CORRIGIDO AQUI
+                    st.rerun()
                 else:
                     feedback = check_guess(target_daily, daily_guess)
                     st.session_state.daily_guesses.insert(0, (feedback, daily_guess))
-                    st.rerun() # CORRIGIDO AQUI
+                    st.rerun()
                     
         if st.session_state.daily_guesses:
             st.markdown("---")
@@ -210,7 +210,7 @@ with tab_game:
                 if submitted and traveler_name:
                     save_score_to_csv(traveler_name, final_score)
                     st.session_state.daily_score_submitted = True
-                    st.rerun() # CORRIGIDO AQUI
+                    st.rerun()
                 elif submitted and not traveler_name:
                     st.error("Por favor, digite um nome.")
         
@@ -221,16 +221,16 @@ with tab_game:
             
             tab_top10, tab_geral = st.tabs(["Top 10", "Geral"])
             
-            # CORREÇÃO DE WARNING: width='stretch'
             with tab_top10:
                 if not df_leaderboard.empty:
-                    st.dataframe(df_leaderboard.head(10), width=None) 
+                    # Voltamos para use_container_width=True (seguro)
+                    st.dataframe(df_leaderboard.head(10), use_container_width=True) 
                 else:
                     st.info("Ainda sem registros hoje.")
                     
             with tab_geral:
                 if not df_leaderboard.empty:
-                    st.dataframe(df_leaderboard, width=None)
+                    st.dataframe(df_leaderboard, use_container_width=True)
                 else:
                     st.info("Ainda sem registros hoje.")
 
@@ -248,7 +248,7 @@ with tab_train:
         st.session_state.training_guesses = []
         st.session_state.training_game_over = False
         st.session_state.training_hints_count = 1 
-        st.rerun() # CORRIGIDO AQUI
+        st.rerun()
 
     target_train = st.session_state.training_target
     
@@ -269,11 +269,11 @@ with tab_train:
                 if train_guess == target_train:
                     st.session_state.training_game_over = True
                     st.session_state.training_guesses.insert(0, ("WIN", train_guess))
-                    st.rerun() # CORRIGIDO AQUI
+                    st.rerun()
                 else:
                     feedback = check_guess(target_train, train_guess)
                     st.session_state.training_guesses.insert(0, (feedback, train_guess))
-                    st.rerun() # CORRIGIDO AQUI
+                    st.rerun()
     else:
         score_train = calculate_score(len(st.session_state.training_guesses), st.session_state.training_hints_count)
         st.success(f"Acertou! Era **{target_train}**. Pontuação simulada: {score_train}")
@@ -290,14 +290,13 @@ with tab_about:
     col_a, col_b = st.columns([1, 4])
     with col_a:
         try: 
-            # CORREÇÃO DE WARNING: width=None (ao invés de use_column_width)
             st.image("perfil.jpg", width=200) 
         except: 
             st.warning("Sem foto")
     with col_b:
-        st.markdown("**Nícollas Saldanha**")
+        st.markdown("**Nic Saldanha**")
         st.caption("Estudante de Informática | Músico | Dev")
-        st.markdown("Obrigado por jogar Cronos! Se quiser doar para ajudar em outros projetos, é de muita gratidão!")
+        st.markdown("Obrigado por jogar Cronos!")
         st.markdown("---")
         st.code("119.978.036-74", language="text")
         st.markdown("[Instagram @nicsaldanha](https://instagram.com/nicsaldanha)")
