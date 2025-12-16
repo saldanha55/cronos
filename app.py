@@ -3,7 +3,7 @@ import random
 import datetime
 import csv
 import os
-import pandas as pd # O Streamlit já instala o pandas por padrão
+import pandas as pd
 from dados import database
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
@@ -36,14 +36,13 @@ st.markdown("""
 
     .stButton>button { width: 100%; font-weight: bold; }
     
-    /* Estilo do Leaderboard */
     .score-highlight { font-size: 2rem; font-weight: bold; color: #538d4e; }
 </style>
 """, unsafe_allow_html=True)
 
 figures_list = sorted(list(database.keys()))
 
-# --- FUNÇÕES DE LOGICA DO JOGO ---
+# --- FUNÇÕES DE LÓGICA DO JOGO ---
 
 def get_daily_figure():
     today = datetime.date.today()
@@ -74,16 +73,10 @@ def check_guess(target_name, guess_name):
     return feedback
 
 def calculate_score(total_guesses, hints_opened):
-    """
-    Base: 1000
-    -50 por erro (total_guesses inclui o acerto, então removemos 1)
-    -150 por dica EXTRA (a primeira é gratis)
-    """
     wrong_guesses = max(0, total_guesses - 1)
     extra_hints = max(0, hints_opened - 1)
-    
     score = 1000 - (wrong_guesses * 50) - (extra_hints * 150)
-    return max(0, score) # Nota mínima zero
+    return max(0, score)
 
 # --- FUNÇÕES DE LEADERBOARD ---
 
@@ -94,7 +87,7 @@ def save_score_to_csv(name, score):
     with open(LEADERBOARD_FILE, mode='a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         if not file_exists:
-            writer.writerow(["Data", "Nome", "Pontos"]) # Cabeçalho
+            writer.writerow(["Data", "Nome", "Pontos"])
         writer.writerow([today, name, score])
 
 def get_leaderboard_data():
@@ -103,9 +96,7 @@ def get_leaderboard_data():
     
     df = pd.read_csv(LEADERBOARD_FILE)
     today = datetime.date.today().isoformat()
-    # Filtra apenas hoje
     df_today = df[df["Data"] == today]
-    # Ordena por pontos (maior primeiro)
     df_today = df_today.sort_values(by="Pontos", ascending=False).reset_index(drop=True)
     return df_today
 
@@ -152,7 +143,7 @@ def render_hints(target_name, context_key):
     if current_count < total_hints and not st.session_state.get(f"{context_key}_game_over", False):
         if st.button(f"🔍 Revelar Dica {current_count + 1} (Custa 150 pts)", key=f"btn_hint_{context_key}"):
             st.session_state[session_key] += 1
-            st.experimental_rerun()
+            st.rerun() # CORRIGIDO AQUI
 
 # --- APP ---
 
@@ -165,12 +156,10 @@ tab_game, tab_train, tab_about = st.tabs(["JOGO DIÁRIO", "TREINO LIVRE", "SOBRE
 with tab_game:
     target_daily = get_daily_figure()
     
-    # Inicialização de variáveis
     if 'daily_guesses' not in st.session_state: st.session_state.daily_guesses = []
     if 'daily_game_over' not in st.session_state: st.session_state.daily_game_over = False
     if 'daily_score_submitted' not in st.session_state: st.session_state.daily_score_submitted = False
     
-    # --- ÁREA DE JOGO ---
     if not st.session_state.daily_game_over:
         st.markdown("### Quem sou eu?")
         render_hints(target_daily, "daily")
@@ -189,34 +178,29 @@ with tab_game:
                     st.session_state.daily_game_over = True
                     st.session_state.daily_guesses.insert(0, ("WIN", daily_guess))
                     st.balloons()
-                    st.experimental_rerun()
+                    st.rerun() # CORRIGIDO AQUI
                 else:
                     feedback = check_guess(target_daily, daily_guess)
                     st.session_state.daily_guesses.insert(0, (feedback, daily_guess))
-                    st.experimental_rerun()
+                    st.rerun() # CORRIGIDO AQUI
                     
-        # Histórico de tentativas
         if st.session_state.daily_guesses:
             st.markdown("---")
             render_header()
             for feedback, name in st.session_state.daily_guesses:
                 render_row(feedback, name)
 
-    # --- TELA DE VITÓRIA E LEADERBOARD ---
     else:
-        # Calcular Pontuação Final
         final_score = calculate_score(len(st.session_state.daily_guesses), st.session_state.daily_hints_count)
         
         st.success(f"Parabéns! A figura era **{target_daily}**.")
         
-        # Exibir Pontuação
         col_score, col_blank = st.columns([1, 2])
         with col_score:
             st.metric(label="Sua Pontuação Final", value=f"{final_score} PTS")
         
         st.markdown("---")
         
-        # Se ainda não submeteu o nome
         if not st.session_state.daily_score_submitted:
             st.markdown("### 🏆 Registre seu feito, Viajante do Tempo!")
             with st.form("score_form"):
@@ -226,35 +210,32 @@ with tab_game:
                 if submitted and traveler_name:
                     save_score_to_csv(traveler_name, final_score)
                     st.session_state.daily_score_submitted = True
-                    st.experimental_rerun()
+                    st.rerun() # CORRIGIDO AQUI
                 elif submitted and not traveler_name:
                     st.error("Por favor, digite um nome.")
         
-        # Se já submeteu, mostra o ranking
         else:
             st.markdown("### 📊 Leaderboard do Dia")
             df_leaderboard = get_leaderboard_data()
-            
-            # Formatando o DataFrame para não mostrar índice feio
-            df_leaderboard.index = df_leaderboard.index + 1 # Começar do 1
+            df_leaderboard.index = df_leaderboard.index + 1
             
             tab_top10, tab_geral = st.tabs(["Top 10", "Geral"])
             
+            # CORREÇÃO DE WARNING: width='stretch'
             with tab_top10:
                 if not df_leaderboard.empty:
-                    st.dataframe(df_leaderboard.head(10), use_container_width=True)
+                    st.dataframe(df_leaderboard.head(10), width=None) 
                 else:
                     st.info("Ainda sem registros hoje.")
                     
             with tab_geral:
                 if not df_leaderboard.empty:
-                    st.dataframe(df_leaderboard, use_container_width=True)
+                    st.dataframe(df_leaderboard, width=None)
                 else:
                     st.info("Ainda sem registros hoje.")
 
 # === MODO TREINO ===
 with tab_train:
-    # Lógica de treino sem leaderboard, mas com dicas pontuadas visualmente
     if 'training_target' not in st.session_state:
         random.seed(None)
         st.session_state.training_target = random.choice(figures_list)
@@ -267,7 +248,7 @@ with tab_train:
         st.session_state.training_guesses = []
         st.session_state.training_game_over = False
         st.session_state.training_hints_count = 1 
-        st.experimental_rerun()
+        st.rerun() # CORRIGIDO AQUI
 
     target_train = st.session_state.training_target
     
@@ -288,13 +269,12 @@ with tab_train:
                 if train_guess == target_train:
                     st.session_state.training_game_over = True
                     st.session_state.training_guesses.insert(0, ("WIN", train_guess))
-                    st.experimental_rerun()
+                    st.rerun() # CORRIGIDO AQUI
                 else:
                     feedback = check_guess(target_train, train_guess)
                     st.session_state.training_guesses.insert(0, (feedback, train_guess))
-                    st.experimental_rerun()
+                    st.rerun() # CORRIGIDO AQUI
     else:
-        # Mostra pontuação simulada no treino
         score_train = calculate_score(len(st.session_state.training_guesses), st.session_state.training_hints_count)
         st.success(f"Acertou! Era **{target_train}**. Pontuação simulada: {score_train}")
 
@@ -309,12 +289,15 @@ with tab_about:
     st.markdown("### Criador")
     col_a, col_b = st.columns([1, 4])
     with col_a:
-        try: st.image("perfil.jpg", use_column_width=True)
-        except: st.warning("Sem foto")
+        try: 
+            # CORREÇÃO DE WARNING: width=None (ao invés de use_column_width)
+            st.image("perfil.jpg", width=200) 
+        except: 
+            st.warning("Sem foto")
     with col_b:
         st.markdown("**Nícollas Saldanha**")
         st.caption("Estudante de Informática | Músico | Dev")
-        st.markdown("Obrigado por jogar Cronos!")
+        st.markdown("Obrigado por jogar Cronos! Se quiser doar para ajudar em outros projetos, é de muita gratidão!")
         st.markdown("---")
         st.code("119.978.036-74", language="text")
         st.markdown("[Instagram @nicsaldanha](https://instagram.com/nicsaldanha)")
