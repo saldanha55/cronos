@@ -291,7 +291,7 @@ database = {
             "Resisti aos ataques portugueses e holandeses por anos, defendendo a Serra da Barriga. Não aceitei a paz que mantinha outros escravizados.",
             "Traído, fui degolado em 20 de novembro. Minha cabeça foi exposta em Recife para provar que eu não era imortal, mas minha lenda vive."
         ]
-    }
+    },
     # --- LITERATURA & PENSAMENTO ---
     "Dante Alighieri": {
         "Era": "Medieval", "Continente": "Europa", "Função": "Escritor", "Morte": 1321,
